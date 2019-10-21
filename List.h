@@ -2,7 +2,6 @@
 #define __EE231_List_h__
 
 #include <iostream>
-#include <string>
 
 template<typename T>
 class List
