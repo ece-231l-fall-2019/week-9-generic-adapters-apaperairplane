@@ -54,6 +54,11 @@ int main()
 	b.pop_front();
 	Assert(b.empty() == true, "b is empty");
 	Assert(a.empty() == false, "a is NOT empty");
+	a.clear();
+	Assert(a.empty() == true, "a should be empty");
+	a.push_back("A");
+	Assert(a.front() == "A", "A is not the first in list");
+
 
 	// TODO: check all methods on StringList...
 
@@ -65,6 +70,7 @@ int main()
 	Assert(c.empty() == false, "B is not empty");
 	c.pop();
 	Assert(c.empty() == true, "B is empty");
+	
 
 	// TODO: check all methods on StringStack...
 
