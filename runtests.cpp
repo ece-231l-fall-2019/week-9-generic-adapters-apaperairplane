@@ -31,9 +31,8 @@ void Assert(bool cond, std::string message)
 
 int main()
 {
-	// TODO:
-	// Write more tests to fully test your classes.
-
+	//DONE
+	std::cout << "String List" << std::endl;
 	StringList a;
 	StringList b;
 
@@ -55,38 +54,113 @@ int main()
 	Assert(b.empty() == true, "b is empty");
 	Assert(a.empty() == false, "a is NOT empty");
 	a.clear();
-	Assert(a.empty() == true, "a should be empty");
-	a.push_back("A");
-	Assert(a.front() == "A", "A is not the first in list");
-
-
-	// TODO: check all methods on StringList...
-
+	Assert(a.empty() == true, "a.clear == empty");
+	Assert(a.size() == 0, "size == 0");
+	a.push_front("A");
+	a.push_front("B");
+	a.pop_back();
+	Assert(a.size() == 1, "size == 1");
+	Assert(a.front() == "B", "front == B");
+	a.push_back("B");
+	a.push_back("C");
+	a.reverse();
+	Assert(a.front() == "C", "Reverse Function");
+	a.push_back("C");
+	a.unique();
+	a.pop_back();
+	Assert(a.back() == "B", "Unique Function");
+	// DONE
+	
+	std::cout << "\nString Stack" << std::endl;
 	StringStack c;
+	StringStack d;
 	c.push("A");
 	c.push("B");
 	Assert(c.top() == "B", "B is at top");
 	c.pop();
-	Assert(c.empty() == false, "B is not empty");
+	Assert(c.empty() == false, "c is not empty");
 	c.pop();
-	Assert(c.empty() == true, "B is empty");
+	Assert(c.empty() == true, "c is empty");
+	Assert(c.size() == 0, "size == 0");
+	c.push("A");
+	c.push("B");
+	Assert(c.size() == 2, "size == 2");
+	d.push("A");
+	d.push("B");
+	d.push("C");
+	c = d;
+	Assert(c.size() == 3, "copy size == 3");
+	Assert(c.top() == "C", "copy top is \"C\"");
+	Assert(c == d, "c == d");
+	c.pop();
+	Assert(c != d, "c != d");
+	// DONE
+
+	std::cout << "\nInt List" << std::endl;
+	IntList e;
+        IntList f;
+
+        e.push_front(1);
+        Assert(e.front() == 1, "front == 1");
+        e.push_front(2);
+        Assert(e.front() == 2, "front == 2");
+        e.pop_front();
+        Assert(e.front() == 1, "front == 1");
+        e.push_front(3);
+        Assert(e.front() == 3, "front == 3");
+
+        f = e;
+
+        Assert(f.front() == 3, "f.front == 3");
+        f.pop_front();
+        Assert(f.front() == 1, "f.front == 1");
+        f.pop_front();
+        Assert(f.empty() == true, "f is empty");
+        Assert(e.empty() == false, "e is NOT empty");
+        e.clear();
+        Assert(e.empty() == true, "e.clear == empty");
+        Assert(e.size() == 0, "size == 0");
+        e.push_front(1);
+        e.push_front(2);
+        e.pop_back();
+        Assert(e.size() == 1, "size == 1");
+        Assert(e.front() == 2, "front == 2");
+        e.push_back(2);
+        e.push_back(3);
+        e.reverse();
+        Assert(e.front() == 3, "Reverse Function");
+        e.push_back(3);
+        e.unique();
+        e.pop_back();
+        Assert(e.back() == 2, "Unique Function");
+	//DONE
 	
+	std::cout << "\nInt Stack" << std::endl;
 
-	// TODO: check all methods on StringStack...
+	IntStack g;
+	IntStack h;
 
-	IntList ia;
-	ia.push_front(5);
-	ia.push_front(6);
-	Assert(ia.front() == 6, "front is 6");
-
-	// TODO: check all methods on IntList...
-
-	IntStack ic;
-	ic.push(6);
-	ic.push(5);
-	Assert(ic.top() == 5, "top is 5");
-
-	// TODO: check all methods on IntStack...
+        g.push(1);
+        g.push(2);
+        Assert(g.top() == 2, "2 is at top");
+        g.pop();
+        Assert(g.empty() == false, "g is not empty");
+        g.pop();
+        Assert(g.empty() == true, "g is empty");
+        Assert(g.size() == 0, "size == 0");
+        g.push(1);
+        g.push(2);
+        Assert(g.size() == 2, "size == 2");
+        h.push(1);
+        h.push(2);
+        h.push(3);
+        g = h;
+        Assert(g.size() == 3, "copy size == 3");
+        Assert(g.top() == 3, "copy top is 3");
+        Assert(g == h, "g == h");
+        g.pop();
+        Assert(g != h, "g != h");
+	// DONE
 
 	return 0;
 }
